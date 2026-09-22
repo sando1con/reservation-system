@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "users")
 @Getter
+@Setter
 @NoArgsConstructor
 public class User {
 
@@ -37,9 +38,5 @@ public class User {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
-
-    public void setPassword(@Nullable String encode) {
-        this.password = password;
-    }
 
 }
