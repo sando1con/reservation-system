@@ -16,7 +16,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signup")
-    public User signup(@RequestBody SignupRequest request) {
+    public User signup(@RequestBody SignupRequest request) {// 회원가입 정보 생성
         User user = new User();
 
         user.setLoginId(request.getLoginId());

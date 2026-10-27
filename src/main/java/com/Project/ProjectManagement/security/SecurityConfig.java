@@ -2,6 +2,7 @@ package com.Project.ProjectManagement.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -25,8 +26,18 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/users/signup").permitAll()
                         .requestMatchers("/auth/login").permitAll()
-                        .requestMatchers("/performances/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/performances").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/performances/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/performances/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/performances/*/schedules").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/performances/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/halls/**").permitAll()
+                        .requestMatchers("/halls/**").hasRole("ADMIN")
                         .requestMatchers("/venues/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/seats/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/seats/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PUT, "/seats/**").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/seats/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 );
 

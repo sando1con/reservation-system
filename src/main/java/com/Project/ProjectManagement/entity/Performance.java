@@ -3,11 +3,13 @@ package com.Project.ProjectManagement.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "performances")
+@Setter
 @Getter
 @NoArgsConstructor
 public class Performance {
@@ -18,7 +20,7 @@ public class Performance {
     @Column(nullable = false, length = 50)
     private String title;
 
-    private String description;
+    private String description;//설명
 
     @Column(nullable = false, length = 50)
     private String category;//공연 종류 ex)뮤지컬, 오케스트라

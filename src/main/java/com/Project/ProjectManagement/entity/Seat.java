@@ -3,12 +3,14 @@ package com.Project.ProjectManagement.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "seats")
 @Getter
+@Setter
 @NoArgsConstructor
 public class Seat {
     @Id
@@ -16,8 +18,8 @@ public class Seat {
     private Long seatId;
 
     @ManyToOne
-    @JoinColumn(name = "venue_id", nullable = false)
-    private Venue venue;
+    @JoinColumn(name = "hall_id", nullable = false)
+    private Hall hall;
 
     @Column(name = "seat_row", length = 10)
     private String seatRow;

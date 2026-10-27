@@ -2,9 +2,11 @@ package com.Project.ProjectManagement.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "reservationseats")
 public class ReservationSeat {
     @Id

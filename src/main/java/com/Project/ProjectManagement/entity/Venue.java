@@ -23,9 +23,6 @@ public class Venue {
     @Column(nullable = false, length = 50)
     private String address;
 
-    @Column(nullable = false)
-    private Integer totalCapacity;
-
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 }
