@@ -1,7 +1,7 @@
 package com.Project.ProjectManagement.security;
 
-import com.Project.ProjectManagement.entity.User;
-import com.Project.ProjectManagement.repository.UserRepository;
+import com.Project.ProjectManagement.user.User;
+import com.Project.ProjectManagement.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
